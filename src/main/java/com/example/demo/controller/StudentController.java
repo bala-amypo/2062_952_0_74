@@ -1,37 +1,23 @@
+package com.example.demo.controller;
+import org.springframework.web.bind.annotation.*;
 import com.example.demo.entity.Student;
-
-
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.example.StudentProject.entity.Student;
-import com.example.StudentProject.service.StudentService;
-
+import com.example.demo.service.StudentService;
+import java.util.*;
 @RestController
-public class StudentController {
+public class StudentController{
     @Autowired
-    StudentService service;
+    StudentService stdser;
     @PostMapping("/addStudent")
     public Student addStudent(@RequestBody Student st){
-        return service.postStudent(st);
+        return stdser.poststudent(st);
     }
     @GetMapping("/getall")
     public List<Student> get(){
-        return service.getAllStudents();
+        return stdser.getAllStudents();
     }
-    @GetMapping("/get/{id}")
-    public Student getById(@PathVariable int id){
-        return service.getById(id);
-    }
-    @PutMapping("/update/{id}")
-    public Student update(@PathVariable int id,@RequestBody Student st){
-        return service.updation(id, st);
+    @GetMapping("/getById/{id}")
+    public Optional<Student> getId(@PathVariable Long id){
+        return stdser.getById(id);
     }
 }
