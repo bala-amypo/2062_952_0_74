@@ -17,7 +17,7 @@ import com.example.StudentProject.service.StudentService;
 public class StudentController {
     @Autowired
     StudentService service;
-    @PostMapping("/postStudent")
+    @PostMapping("/addStudent")
     public Student add(@RequestBody Student st){
         return service.addStudent(st);
     }
