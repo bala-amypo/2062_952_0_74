@@ -18,11 +18,11 @@ public class StudentController {
     @Autowired
     StudentService service;
     @PostMapping("/addStudent")
-    public Student add(@RequestBody Student st){
-        return service.addStudent(st);
+    public Student addStudent(@RequestBody Student st){
+        return service.postStudent(st);
     }
-    @GetMapping("/getAll")
-    public List<Student> getAll(){
+    @GetMapping("/getall")
+    public List<Student> get(){
         return service.getAllStudents();
     }
     @GetMapping("/get/{id}")
