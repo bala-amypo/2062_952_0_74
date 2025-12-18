@@ -1,4 +1,5 @@
-package com.example.StudentProject.controller;
+import com.example.demo.entity.Student;
+
 
 import java.util.List;
 
